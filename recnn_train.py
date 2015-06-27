@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Recursive Neural Tensor  Network implemetation
 
@@ -205,7 +208,14 @@ def main(batch_size = 3):
     import random
     from recnn_util import load_data
     
-    train_trees, dev_trees, test_trees, token2id = load_data("data/stanford_sentiment_treebank.pkl")
+    # train_trees, dev_trees, test_trees, token2id
+    train_trees, dev_trees, test_trees, token2id, id2token, a5 = load_data("data/stanford_sentiment_treebank.pkl")
+    # train_trees, _ = train_trees
+    # dev_trees, _ = dev_trees
+    # test_trees, _ = test_trees
+    # print len(a)
+    # print type(a)
+    # print a
     sys.stderr.write("Data load done")
     
     batch_number = len(train_trees) / batch_size
@@ -228,7 +238,7 @@ def main(batch_size = 3):
     print "start training.."
     while True:
         # shuffle data
-        random.shuffle(train_trees)
+        # random.shuffle(train_trees)
         # for each mini-batch in 
         for i in xrange(batch_number):
             training_iter += 1
